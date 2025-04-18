@@ -35,7 +35,9 @@
 
 const express = require('express')
 const db = require('./db');
+require('dotenv').config();
 const app = express()
+const PORT = process.env.PORT;
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -50,7 +52,7 @@ app.use('/',personRoutes);
 const menuRoutes =require('./routes/menuRoutes');
 app.use('/menu',menuRoutes);
 
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
   console.log('Server Is listening');
 })
 
